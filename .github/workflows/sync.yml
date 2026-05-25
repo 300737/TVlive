@@ -1,0 +1,26 @@
+name: 🌀 Sync Upstream
+on:
+  # 定时触发，每天UTC时间2点运行（北京时间上午10点）
+  schedule:
+    - cron: '0 2 * * *'
+  # 允许手动触发（在仓库的Actions页面可以手动点按钮运行）
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔄 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🎯 Sync from Upstream
+        uses: repo-sync/pull-request@v2
+        with:
+          # 源仓库：你要同步谁（wind005的TVlive仓库）
+          source_repo: &quot;wind005/TVlive&quot;
+          # 源分支：同步哪个分支（通常是main）
+          source_branch: &quot;main&quot;
+          # 目标分支：同步到你自己仓库的哪个分支
+          destination_branch: &quot;main&quot;
+          # 使用GitHub自动生成的令牌，有权限操作你的仓库
+          github_token: ${{ secrets.GITHUB_TOKEN }}
