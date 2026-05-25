@@ -16,11 +16,11 @@ jobs:
       - name: 🎯 Sync from Upstream
         uses: repo-sync/pull-request@v2
         with:
-          # 源仓库：你要同步谁（wind005的TVlive仓库）
-          source_repo: &quot;wind005/TVlive&quot;
-          # 源分支：同步哪个分支（通常是main）
-          source_branch: &quot;main&quot;
-          # 目标分支：同步到你自己仓库的哪个分支
-          destination_branch: &quot;main&quot;
-          # 使用GitHub自动生成的令牌，有权限操作你的仓库
+          # 源仓库：你要同步谁 (wind005的TVlive仓库)
+          source_repo: "wind005/TVlive"
+          # 源分支：同步哪个分支 (通常是main)
+          source_branch: "main"
+          # 目标分支：同步到你自己的哪个分支
+          destination_branch: "main"
+          # 使用Github自动生成的令牌，有权限操作你的仓库
           github_token: ${{ secrets.GITHUB_TOKEN }}
